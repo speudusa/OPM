@@ -1,0 +1,32 @@
+﻿
+@using OPM.ViewModels;
+@model AddBookViewModel;
+
+@* Currently Not utilizing this View.  
+    This needs to shift the elements to the Currently Reading Table somehow *@
+
+<h1>
+    Add a New Book
+</h1>
+
+<form method="post">
+    
+    <div asp-controller="Books" asp-action="Add" class ="form-group">
+        <label asp-for="BookTitle"> Title </label>
+        <input asp-for="BookTitle" />
+        <span asp-validation-for="BookTitle"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="AuthName"> Author's Name </label>
+        <input asp-for="AuthName" />
+        <span asp-validation-for="AuthName"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="TotalPages"> Number of Pages </label>
+        <input asp-for="TotalPages" />
+        <span asp-validation-for="TotalPages"></span>
+    </div>
+    <input type="submit" value="Add Book" />
+</form>

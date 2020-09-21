@@ -1,0 +1,56 @@
+﻿<h1>Your Reading List</h1>
+
+<p>
+    <a asp-controller="Reading" asp-action="Add"> What did you read today? </a>
+    @*****Create update action that replaces/updates the current page******@
+</p>
+
+<p>
+    <a asp-controller="Books" asp-action="Add">  Need to add a new book? </a>
+</p>
+
+@*@if (ViewBag.books.Count == 0)
+{
+    <p>
+        Nothing on your list yet!
+    </p>
+}*@
+
+    <h2>Currently Reading</h2>
+    <table class="table">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Current Page</th>
+            <th>Total Pages</th>
+        </tr>
+               
+            @*@foreach (string book in ViewBag.booklist)
+            {
+                <tr>
+                    <td>@book.BookTitle</td>
+                    <td>@book.CurrentPages </td>
+                </tr>
+            }*@
+    </table>
+
+    <h2>Completed Reading</h2>
+    <table class="table">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Total Pages</th>
+            <th>Date Completed</th>
+        </tr>
+
+        @*@foreach (string book in ViewBag.books)
+        {
+            <tr>
+                <td>@book.BookTitle</td>
+                <td>@book.CurrentPages </td>
+            </tr>
+        }*@
+    </table>
+
+
+

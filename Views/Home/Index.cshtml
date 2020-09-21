@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h2>Hey there, kiddo!</h2>
+    <h2>Welcome to</h2>
+    <h1 class="display-4">One Page More!</h1>
+    <p>Your place to track your reading progress!</p>
+</div>
+
+<div>
+    This is the child's view of the app
+</div>
+
+
+@*Font ideas:  something more fun...  typewriter like with a softer (not cursive) accent font*@
+@*BUTTON DESIGN Ideas:  2x2 grid with a button in each with padding and margins
+    CSS button design link 
+    *@
+
+@*CHILD USER*@
+
+
+
+<ul>
+    <li>
+        <a asp-controller="Reading" asp-action="Add"> Reading Time </a>
+    </li>
+</ul>
+
+<ul>
+    <li>
+        <a asp-controller="Books" asp-action="Add"> Add A Book </a>
+    </li>
+</ul>
+
+<ul>
+    <li>
+        <a asp-controller="Reading" asp-action="Index"> Your Book List </a>
+    </li>
+</ul>
+
+<ul>
+    <li>
+        <a asp-controller="Email" asp-action="Index"> Share Your List </a>
+    </li>
+</ul>
