@@ -9,7 +9,7 @@ using OPM.Data;
 namespace OPM.Migrations
 {
     [DbContext(typeof(BookDbContext))]
-    [Migration("20200901202249_InitialMigration")]
+    [Migration("20200924194820_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,10 +34,7 @@ namespace OPM.Migrations
                     b.Property<DateTime>("CompDate")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<bool>("CompPages")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<int>("CurrentPages")
+                    b.Property<int>("StartPage")
                         .HasColumnType("int");
 
                     b.Property<int>("TotalPages")

@@ -58,9 +58,6 @@ namespace OPM.Controllers
 
         public IActionResult Delete()
         {
-            //TODO - need to update to ViewModels to deal with the change 
-            //from ViewBag to VM
-            //BUT we are updating the mySQL
             ViewBag.books = context.Books.ToList();
 
             return View();
@@ -82,6 +79,3 @@ namespace OPM.Controllers
 
     }
 }
-
-
-//TODO:  add NEW book is working well overall, need to add edit and delete functionality

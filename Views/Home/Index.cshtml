@@ -19,30 +19,47 @@
     CSS button design link 
     *@
 
-@*CHILD USER*@
 
-
-
+@* 
+    CHILD ACCESS
+    Only options to call up book from DB and then edit Pg numbers
+*@
 <ul>
     <li>
-        <a asp-controller="Reading" asp-action="Add"> Reading Time </a>
+        <a asp-controller="Reading" asp-action="Add"> Reading Time </a>  
     </li>
 </ul>
 
+@* 
+    PARENT ACCESS
+    Adds book to initial DB (title, author, total pg, starting pg)    
+*@
 <ul>
     <li>
         <a asp-controller="Books" asp-action="Add"> Add A Book </a>
     </li>
 </ul>
 
+
+@* 
+    GET - only want to see the list here.  (title author)
+    BUT -- click on Title, can pull up initial Book Info (title, author, pages)
+    
+*@
 <ul>
     <li>
-        <a asp-controller="Reading" asp-action="Index"> Your Book List </a>
+        <a asp-controller="Reading" asp-action="Index"> Your Bookshelf </a>
     </li>
 </ul>
 
+@* 
+    WOULD BE NICE:  PARENT
+    email list of books from to whomever
+    or download as PDF???  (not sure if that's a thing)
+*@
+
 <ul>
     <li>
-        <a asp-controller="Email" asp-action="Index"> Share Your List </a>
+        <a asp-controller="Email" asp-action="Index"> Share Your Shelf </a>
     </li>
 </ul>

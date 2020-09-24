@@ -4,13 +4,13 @@
 
 <h3>What are you reading?</h3>
 
-<h4>TBB: DropDown for title selection</h4>
+<h4>TBB: DropDown for title selection</h4> @*SELECT LIST ITEM (use titles)*@
 
 <form method="post">
-    <div class="form-group">
-        <label for="booktitle"> Book Title  </label>
-        <input bookTitle="bookTitle" type="text" />
-    </div>
+    @*<div class="form-group">
+        <label asp-for="BookDataId"> Book Title  </label>
+        <select asp-for="BookDataId"  asp-items="Model.BookData"> Book Data</select>
+    </div>*@
 
     <div>
         <label for="currentPage"> Last Page Number Read  </label>

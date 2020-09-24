@@ -17,8 +17,7 @@ namespace OPM.Migrations
                     BookTitle = table.Column<string>(nullable: true),
                     AuthName = table.Column<string>(nullable: true),
                     TotalPages = table.Column<int>(nullable: false),
-                    CurrentPages = table.Column<int>(nullable: false),
-                    CompPages = table.Column<bool>(nullable: false),
+                    StartPage = table.Column<int>(nullable: false),
                     CompDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>

@@ -32,10 +32,7 @@ namespace OPM.Migrations
                     b.Property<DateTime>("CompDate")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<bool>("CompPages")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<int>("CurrentPages")
+                    b.Property<int>("StartPage")
                         .HasColumnType("int");
 
                     b.Property<int>("TotalPages")
