@@ -13,21 +13,28 @@ namespace OPM.ViewModels
         [Required(ErrorMessage = "** Please enter your current page number **")]
         public int CurrentPage { get; set; }
 
-        [Required(ErrorMessage ="** Please select a title**")]
-       
-        public List<SelectListItem> BookData { get; set; }
+        [Required(ErrorMessage =" ** Please select today's date **")]
+        public DateTime ReadToday { get; set; }
 
-        public AddReadingListViewModel(List<Books> bookdata)
+
+        public int BookId { get; set; }
+
+        [Required(ErrorMessage = "** Please select a title**")]
+        public List<SelectListItem> Book { get; set; }
+
+        public AddReadingListViewModel(List<Books> books)
         {
-            BookData = new List<SelectListItem>();
+            Book = new List<SelectListItem>();
 
-            foreach (var bookdatum in bookdata)
+            foreach (var book in books)
             {
-                BookData.Add(new SelectListItem
-                {
-                    Value = bookdatum.Id.ToString(),
-                    Text = bookdatum.BookTitle
-                });
+                Book.Add(
+                    new SelectListItem
+                        {
+                            Value = book.Id.ToString(),
+                            Text = book.BookTitle
+                        }
+                    );
             }
         }
 

@@ -5,36 +5,37 @@ using System.Threading.Tasks;
 
 namespace OPM.Models
 {
-    public class ReadingList
+    public class ReadingList  
     {
         public int Id { get; set; }
 
-        public Books BookData { get; set; } //iedally the title, author, totalpage
+        public string Title { get; set; }
+        
+        public int  CurrentPage { get; set; }  //UPDATEABLE here
 
-        public int BookDataId { get; set; }  //foreign key in our table 
-        //But is this the best option
-        //Could we collect  -- do we EVEN need a foreign key?
-            //nothing (as of right now) is really spearate from the initial book object.
-            //Want to UPDATE only the page numbers
-            //Want to have SEPARATE powers via parent child...perhaps seperate MCVs for those?
-            
-
-        public int  CurrentPage { get; set; }  //UPDATEABLE
+        public DateTime ReadToday { get; set; }
     
-        public ReadingList (int currentPage, bool finished)
+        public Books Book { get; set; }
+
+        public int BookId { get; set; }
+
+
+
+
+        public ReadingList (Books books, int currentPage, DateTime readToday)
         {
+            Book = books;  
             CurrentPage = currentPage;
+            ReadToday = readToday;
+
         }
 
-        public ReadingList ()
+        public ReadingList()
         {
 
         }
     
     
     }
-
-    //Review Coding events for the edit funtion.  I forget where we did that...
-    //Review Tech jobs for the interactive tables (clicking on title, not a check box with number)
 
 }

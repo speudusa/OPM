@@ -2,12 +2,12 @@
 @using OPM.ViewModels;
 @model AddBookViewModel;
 
-@* Currently Not utilizing this View.  
-    This needs to shift the elements to the Currently Reading Table somehow *@
+@* This is the form to add a new book into the database
+    Currently it relates to the index, where a master list has been created*@
 
-<h1>
+<h2>
     Add a New Book to your Shelf
-</h1>
+</h2>
 
 <form method="post">
 
@@ -33,7 +33,15 @@
         <label asp-for="StartPage"> Starting Page Number </label>
         <input asp-for="StartPage" />
         <span asp-validation-for="StartPage"></span>
-    </div>  
+    </div>
+
+    <div>
+        <label for="start">Start date:</label>
+        <input type="date" id="start" name="trip-start"
+               value=""
+               min="2020-01-01" max="2099-12-31">
+    </div>
+    
 
 
     <input type="submit" value="Add Book" />

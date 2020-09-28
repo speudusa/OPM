@@ -21,17 +21,16 @@ namespace OPM.Controllers
         //GET
         public IActionResult Index()
         {
-            //List<ReadingList> readingLists = context.ReadingList.ToList();
+            List<Books> readingLists = context.Books.ToList();
 
-            return View();
+            return View(readingLists);
         }
-
+        
         [HttpGet]
-        //Retrieives current (persisent) data from my ARLVM
         public IActionResult Add()
         {
-
-            AddReadingListViewModel addReadingListViewModel = new AddReadingListViewModel();
+            List<Books> books = context.Books.ToList();
+            AddReadingListViewModel addReadingListViewModel = new AddReadingListViewModel(books);
 
             return View(addReadingListViewModel);
         }
@@ -43,18 +42,19 @@ namespace OPM.Controllers
         {
            if (ModelState.IsValid)
             {
-                ReadingList newList = new ReadingList  //ONLY updating this page
+                Books theBook = context.Books.Find(addReadingListViewModel.BookId);
+                ReadingList newList = new ReadingList  
                 {
+                    Book = theBook,
+                    ReadToday = addReadingListViewModel.ReadToday,
                     CurrentPage = addReadingListViewModel.CurrentPage,
                 };
-                //context.ReadingList.Add(newList);
+                //TODO:  figure this out
+                context.Books.Add(newList);
                 context.SaveChanges();
             }
-            return Redirect("/Reading");  //Check this
+            return Redirect("/Reading"); 
         }
-
-        //link to find id for the book to edit and not RE-ADDING entire book
-        //see coding events and Ben's walkthrough 
     }
 }
 

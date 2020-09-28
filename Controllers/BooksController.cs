@@ -27,7 +27,7 @@ namespace OPM.Controllers
         }
 
         [HttpGet]
-        public IActionResult Add()
+        public IActionResult AddBook()
         {
             AddBookViewModel addBookViewModel = new AddBookViewModel();
 
@@ -35,7 +35,7 @@ namespace OPM.Controllers
         }
 
         [HttpPost] 
-        public IActionResult Add(AddBookViewModel addBookViewModel)
+        public IActionResult AddBook(AddBookViewModel addBookViewModel)
         {
             if (ModelState.IsValid)
             {
@@ -79,3 +79,5 @@ namespace OPM.Controllers
 
     }
 }
+
+//
