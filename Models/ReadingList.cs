@@ -15,19 +15,12 @@ namespace OPM.Models
 
         public DateTime ReadToday { get; set; }
     
-        public Books Book { get; set; }
+       public List<Books> books { get; set; }
 
-        public int BookId { get; set; }
-
-
-
-
-        public ReadingList (Books books, int currentPage, DateTime readToday)
+        public ReadingList (int currentPage, DateTime readToday)
         {
-            Book = books;  
             CurrentPage = currentPage;
             ReadToday = readToday;
-
         }
 
         public ReadingList()

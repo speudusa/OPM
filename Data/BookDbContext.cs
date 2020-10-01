@@ -11,6 +11,7 @@ namespace OPM.Data
     public class BookDbContext : DbContext
     {
         public DbSet<Books> Books { get; set; }
+        public DbSet<ReadingList> ReadingLists { get; set; }
 
         public BookDbContext(DbContextOptions<BookDbContext> options) 
             : base(options)

@@ -13,7 +13,6 @@ namespace OPM.Controllers
     {
         private BookDbContext context; 
 
-
         public BooksController(BookDbContext dbContext)
         {
             context = dbContext;
@@ -27,7 +26,7 @@ namespace OPM.Controllers
         }
 
         [HttpGet]
-        public IActionResult AddBook()
+        public IActionResult Add()
         {
             AddBookViewModel addBookViewModel = new AddBookViewModel();
 
@@ -35,7 +34,7 @@ namespace OPM.Controllers
         }
 
         [HttpPost] 
-        public IActionResult AddBook(AddBookViewModel addBookViewModel)
+        public IActionResult Add(AddBookViewModel addBookViewModel)
         {
             if (ModelState.IsValid)
             {
@@ -49,8 +48,7 @@ namespace OPM.Controllers
                 context.Books.Add(newBook);
                 context.SaveChanges();
 
-                return Redirect("/Books");  //This is the ONLY instance of this view...  (Books/Index)
-                    //Utilize in future???
+                return Redirect("/Books");  
             }
 
             return View(addBookViewModel);

@@ -15,9 +15,11 @@ namespace OPM.Models
         public int TotalPages { get; set; }
 
         public int StartPage { get; set; }
-        public DateTime StartDate { get; set; } 
+        public DateTime StartDate { get; set; }   
 
-        public List<ReadingList> readingLists { get; set; }
+        public ReadingList List { get; set; }
+
+        public int ListId { get; set; }
 
         public Books(string bookTitle, string authName, int totalPages, int startPage, DateTime startDate)
         {
