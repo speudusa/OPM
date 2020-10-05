@@ -12,20 +12,16 @@ namespace OPM.Models
         public string BookTitle { get; set; }
         public string AuthName { get; set; }
 
-        public int TotalPages { get; set; }
+        public int TotalPage { get; set; }
 
         public int StartPage { get; set; }
         public DateTime StartDate { get; set; }   
-
-        public ReadingList List { get; set; }
-
-        public int ListId { get; set; }
 
         public Books(string bookTitle, string authName, int totalPages, int startPage, DateTime startDate)
         {
             BookTitle = bookTitle;
             AuthName = authName;
-            TotalPages = totalPages;
+            TotalPage = totalPages;
             StartPage = startPage;
             StartDate = startDate;
         }
@@ -36,16 +32,6 @@ namespace OPM.Models
         }
 
     }
-
-    /* TODO 1.
-     
-    NOTES:  Who knows about who?  
-    Books DO NOT know about the bookshelf  
-
-    Also, got time stamp to show up.  
-    Initialize when entering book
-
-     */
 
     
     

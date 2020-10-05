@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -6,32 +8,76 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using OPM.Models;
+using OPM.ViewModels;
+using OPM.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Reflection;
 
 namespace OPM.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private BookDbContext context; 
+        public int Id { get; private set; }
+
+
+        public HomeController(BookDbContext dbContext)
         {
-            _logger = logger;
+            context = dbContext;
         }
 
         public IActionResult Index()
         {
-            return View();
+            List<Books> books = context.Books.Include(b => b.BookTitle).ToList();
+
+            return View(books);
         }
 
-        public IActionResult Add()
+
+
+        [HttpGet("/Add")]
+        public IActionResult AddBook()
         {
-            return View();
+            AddShelfViewModel addShelfViewModel = new AddShelfViewModel(context.Books.ToList());
+            return View(addShelfViewModel);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost("/Add")]
+        public IActionResult Add(AddShelfViewModel addShelfViewModel)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+            
+            if (ModelState.IsValid)
+            {
+                //Create New Shelf Object: includes Title, Author, current page number, total page number
+                Shelf newShelf = new Shelf()
+                {
+                    BookTitle = addShelfViewModel.Book.BookTitle,
+                    AuthName = addShelfViewModel.AuthName,
+                    StartPage = addShelfViewModel.StartPage,
+                    TotalPage = addShelfViewModel.TotalPage
+
+                };
+
+                //IF current page number !== total
+
+                //ELSE 
+                //title, author, total page number 
+
+                context.Books.Add(newShelf);
+                context.SaveChanges();
+
+                return Redirect("/Home");
+            }
+
+            return View("Add", addBookViewModel);
+
+            }
     }
+
+        //Details function
+            //Where book data can be updated:  page number and date time
+            //Where book items can be deleted
+
 }

@@ -42,13 +42,13 @@ namespace OPM.Controllers
                 {
                     BookTitle = addBookViewModel.BookTitle,
                     AuthName = addBookViewModel.AuthName,
-                    TotalPages = addBookViewModel.TotalPages
+                    TotalPage = addBookViewModel.TotalPage
                 };
 
                 context.Books.Add(newBook);
                 context.SaveChanges();
 
-                return Redirect("/Books");  
+                return Redirect("/Home");
             }
 
             return View(addBookViewModel);

@@ -16,13 +16,18 @@ namespace OPM.ViewModels
         public string AuthName { get; set; }
 
         [Required(ErrorMessage = "** Please enter the total number of pages in your book. **")]
-        public int TotalPages { get; set; }
+        public int TotalPage { get; set; }
        
         [Required(ErrorMessage ="** Please enter the page number you are starting at. **")]
         public int StartPage { get; set; }
 
 
+        public AddBookViewModel()
+        {
 
+        }
+
+       
       
 
     }
